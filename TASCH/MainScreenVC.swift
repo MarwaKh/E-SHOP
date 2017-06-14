@@ -12,6 +12,8 @@ import UIKit
 class MainScreenVC: UIViewController {
 
     
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var catalogCollectionView: UICollectionView!
     
     @IBOutlet weak var desiredItemsTableView: UITableView!
@@ -61,6 +63,9 @@ class MainScreenVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        self.heightConstraint.constant = CGFloat(140 * WishlistManager.sharedInstance.wishList.count) + 140
+        
         self.desiredItemsTableView.reloadData()
         
          totalPrice.text = "Total $\(WishlistManager.sharedInstance.totalPrice())"

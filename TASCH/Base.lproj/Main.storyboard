@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAJ-3R-H5V">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1020"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product catalogue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFi-DS-BVN">
                                                 <rect key="frame" x="8" y="8" width="200" height="32"/>
@@ -94,8 +94,11 @@
                                                 </connections>
                                             </collectionView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x4Y-l4-9A0">
-                                                <rect key="frame" x="0.0" y="218" width="414" height="434"/>
+                                                <rect key="frame" x="0.0" y="218" width="414" height="802"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="802" id="3RB-Of-v78"/>
+                                                </constraints>
                                                 <view key="tableHeaderView" contentMode="scaleToFill" id="CMG-W7-Cwf">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -308,9 +311,9 @@
                                             <constraint firstItem="OFi-DS-BVN" firstAttribute="top" secondItem="BAJ-3R-H5V" secondAttribute="top" constant="8" id="8yl-Ig-44h"/>
                                             <constraint firstItem="OFi-DS-BVN" firstAttribute="leading" secondItem="BAJ-3R-H5V" secondAttribute="leading" constant="8" id="Ary-G5-0sN"/>
                                             <constraint firstItem="7Pb-ab-stA" firstAttribute="leading" secondItem="BAJ-3R-H5V" secondAttribute="leading" constant="8" id="IKA-Le-2vt"/>
-                                            <constraint firstAttribute="bottom" secondItem="x4Y-l4-9A0" secondAttribute="bottom" constant="20" id="K3m-dG-z8j"/>
                                             <constraint firstItem="x4Y-l4-9A0" firstAttribute="leading" secondItem="BAJ-3R-H5V" secondAttribute="leading" id="YVK-5b-i9L"/>
                                             <constraint firstItem="7Pb-ab-stA" firstAttribute="top" secondItem="OFi-DS-BVN" secondAttribute="bottom" constant="8" id="do2-nu-A67"/>
+                                            <constraint firstItem="x4Y-l4-9A0" firstAttribute="bottom" secondItem="BAJ-3R-H5V" secondAttribute="bottom" id="eek-cT-syL"/>
                                             <constraint firstAttribute="trailing" secondItem="x4Y-l4-9A0" secondAttribute="trailing" id="luh-Sc-2Cp"/>
                                             <constraint firstAttribute="trailing" secondItem="7Pb-ab-stA" secondAttribute="trailing" constant="8" id="o16-fh-OiN"/>
                                             <constraint firstItem="x4Y-l4-9A0" firstAttribute="top" secondItem="7Pb-ab-stA" secondAttribute="bottom" constant="15" id="wbs-br-M4o"/>
@@ -330,7 +333,6 @@
                         <constraints>
                             <constraint firstItem="OLi-MA-RNb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9bd-LU-Nd4"/>
                             <constraint firstItem="OLi-MA-RNb" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="KYv-cM-Gcb"/>
-                            <constraint firstItem="BAJ-3R-H5V" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Peu-Cd-uAK"/>
                             <constraint firstItem="BAJ-3R-H5V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QDN-cZ-HQb"/>
                             <constraint firstItem="BAJ-3R-H5V" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="deU-NC-iYm"/>
                             <constraint firstAttribute="trailing" secondItem="OLi-MA-RNb" secondAttribute="trailing" id="inm-PY-pPK"/>
@@ -343,6 +345,7 @@
                     <connections>
                         <outlet property="catalogCollectionView" destination="7Pb-ab-stA" id="01t-nY-WaF"/>
                         <outlet property="desiredItemsTableView" destination="x4Y-l4-9A0" id="crf-4n-9KY"/>
+                        <outlet property="heightConstraint" destination="3RB-Of-v78" id="z7g-Gj-9cS"/>
                         <outlet property="subTotal" destination="gXs-nO-Jsi" id="7Y7-Ok-fIU"/>
                         <outlet property="totalPrice" destination="Es3-ZA-oV9" id="MAl-wE-8kI"/>
                         <segue destination="UOh-jP-hnY" kind="show" identifier="From Catalogue" id="dti-nT-ySX"/>
