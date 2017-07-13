@@ -9,10 +9,10 @@
 import UIKit
 
 class CostumButton: UIButton {
-
+    
     override func awakeFromNib() {
         self.clipsToBounds = true
         self.layer.cornerRadius = 6.0
     }
-
+    
 }

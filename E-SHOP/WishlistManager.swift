@@ -25,7 +25,7 @@ class WishlistManager: NSObject {
     func removeItem(index: Int) {
         
         wishList.remove(at: index)
-}
+    }
     
     func StringToFloat(stringValue: String) -> Float {
         return Float(stringValue)!

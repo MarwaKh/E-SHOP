@@ -19,7 +19,7 @@ class Item {
     var quantity : String?
     var imagePath : String?
     var about : String?
- 
+    
     init(itemDict: [String : AnyObject]) {
         self.name = itemDict["name"] as? String
         self.price = itemDict["price"] as? String
@@ -33,60 +33,60 @@ class Item {
     }
     
     
-   static func retrieveItems(completionHandler: @escaping ([Item]) -> ()) {
-    
-    DispatchQueue.global(qos: .userInteractive).async {
-     
-        var items = [Item]()
-    
-    
-        let requestURL = NSURL(string: "http://localhost:8888/E-SHOP/getProducts.php")
-    
-        let request = NSMutableURLRequest(url: requestURL! as URL)
+    static func retrieveItems(completionHandler: @escaping ([Item]) -> ()) {
         
-    
-        request.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest){
-            data, response, error in
+        DispatchQueue.global(qos: .userInteractive).async {
             
-            //exiting if there is some error
-            if error != nil{
-                print("error is \(error)")
-                return;
-            }
-            else {
-            do {
-             
-                let productsJSON = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: AnyObject]
+            var items = [Item]()
+            
+            
+            let requestURL = NSURL(string: "http://localhost:8888/E-SHOP/getProducts.php")
+            
+            let request = NSMutableURLRequest(url: requestURL! as URL)
+            
+            
+            request.httpMethod = "GET"
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest){
+                data, response, error in
                 
-                if let jsonDict = productsJSON {
-                    let itemDicts = jsonDict["products"] as! [[String : AnyObject]]
-                    for itemDict in itemDicts {
-                        let item = Item(itemDict: itemDict)
-                        items.append(item)
+                //exiting if there is some error
+                if error != nil{
+                    print("error is \(error)")
+                    return;
+                }
+                else {
+                    do {
+                        
+                        let productsJSON = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: AnyObject]
+                        
+                        if let jsonDict = productsJSON {
+                            let itemDicts = jsonDict["products"] as! [[String : AnyObject]]
+                            for itemDict in itemDicts {
+                                let item = Item(itemDict: itemDict)
+                                items.append(item)
+                            }
+                            
+                            DispatchQueue.main.async {
+                                completionHandler(items)
+                            }
+                        }
+                        
+                    } catch {
+                        print(error)
                     }
                     
-                    DispatchQueue.main.async {
-                        completionHandler(items)
-                    }
                 }
-                
-            } catch {
-                print(error)
             }
-               
-            }
+            
+            task.resume()
+            
         }
-        
-        task.resume()
-        
     }
-    }
-
+    
     func getColors(item: Item) -> [String] {
-
-            return (item.colors?.components(separatedBy: " "))!
+        
+        return (item.colors?.components(separatedBy: " "))!
     }
     
     func getSize(item: Item) -> [String] {

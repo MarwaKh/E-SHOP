@@ -1422,7 +1422,7 @@ struct StarLayer {
      
      Scale the star points by the given factor.
      
-     - parameter starPoints: Array of points for drawing a closed shape. The size of enclosing rectangle is 100 by 100.  
+     - parameter starPoints: Array of points for drawing a closed shape. The size of enclosing rectangle is 100 by 100.
      
      - parameter factor: The factor by which the star points are scaled. For example, if it is 0.5 the output points will define the shape twice as small as the original.
      

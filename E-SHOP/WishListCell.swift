@@ -9,7 +9,7 @@
 import UIKit
 
 class WishListCell: UITableViewCell {
-
+    
     var itemColors: [String]?
     
     var item: Item! {
@@ -34,7 +34,7 @@ class WishListCell: UITableViewCell {
         }
     }
     
-  
+    
     private func updateCell() {
         
         productImg.image = UIImage(named: item.imagePath!)
@@ -79,7 +79,7 @@ extension WishListCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = productColorCollectionView.dequeueReusableCell(withReuseIdentifier: "WishListColorCell", for: indexPath) 
+        let cell = productColorCollectionView.dequeueReusableCell(withReuseIdentifier: "WishListColorCell", for: indexPath)
         
         cell.backgroundColor = UIColor(hexString: (self.itemColors?[indexPath.item])!)
         

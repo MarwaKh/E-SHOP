@@ -9,7 +9,7 @@
 import UIKit
 
 class ItemVC: UIViewController {
-
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var itemImg: UIImageView!
@@ -27,7 +27,7 @@ class ItemVC: UIViewController {
     @IBOutlet weak var colorCollectionView: UICollectionView!
     
     @IBOutlet weak var priceView: UIView!
-   
+    
     @IBOutlet weak var sizeView: UIView!
     
     @IBOutlet weak var addBtn: UIButton!
@@ -44,12 +44,12 @@ class ItemVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+10)
         
         if let topItem = self.navigationController?.navigationBar.topItem {
             
-           
+            
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         }
         
@@ -71,7 +71,7 @@ class ItemVC: UIViewController {
         itemColors = itemSelected?.getColors(item: itemSelected!)
         itemSizes = itemSelected?.getSize(item: itemSelected!)
         
-        loadData()     
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,7 +79,7 @@ class ItemVC: UIViewController {
         self.navigationItem.title = itemSelected?.name
         
         print(itemSelected)
-   
+        
         
     }
     
@@ -88,23 +88,23 @@ class ItemVC: UIViewController {
     }
     
     @IBAction func addBtnTapped(_ sender: UIButton) {
-         print("______________________")
+        print("______________________")
         WishlistManager.sharedInstance.addItem(item: itemSelected!)
         print("______________________")
-//        print(WishlistManager.sharedInstance.totalPrice())
-      
-      _ = navigationController?.popViewController(animated: true)
-    
+        //        print(WishlistManager.sharedInstance.totalPrice())
+        
+        _ = navigationController?.popViewController(animated: true)
+        
     }
-   
-
+    
+    
     @IBAction func removeBtnTapped(_ sender: UIButton) {
         
         WishlistManager.sharedInstance.removeItem(index: itemIndex!)
         
-         _ = navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
-   
+    
     //retrieve all the information about the selected item
     func loadData() {
         
@@ -115,11 +115,11 @@ class ItemVC: UIViewController {
             itemSize2.text = itemSizes?[1]
             itemSize3.text = itemSizes?[2]
             itemImg.image = UIImage(named: item.imagePath!)
-        
+            
         }
         
     }
-
+    
 }
 
 extension ItemVC: UICollectionViewDelegate, UICollectionViewDataSource {

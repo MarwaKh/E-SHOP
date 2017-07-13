@@ -123,8 +123,7 @@
 				CEB723A51EE9B2100048B932 /* LaunchScreen.storyboard */,
 				CEB723A81EE9B2100048B932 /* Info.plist */,
 			);
-			name = "E-SHOP";
-			path = TASCH;
+			path = "E-SHOP";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +142,7 @@
 			dependencies = (
 			);
 			name = "E-SHOP";
-			productName = TASCH;
+			productName = "E-SHOP";
 			productReference = CEB723991EE9B2100048B932 /* E-SHOP.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -258,6 +257,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -308,6 +308,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -334,8 +335,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = P8WWQCMBY7;
-				INFOPLIST_FILE = TASCH/Info.plist;
+				INFOPLIST_FILE = "E-SHOP/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.marwa.E-SHOP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -347,8 +349,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = P8WWQCMBY7;
-				INFOPLIST_FILE = TASCH/Info.plist;
+				INFOPLIST_FILE = "E-SHOP/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.marwa.E-SHOP";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -10,7 +10,7 @@ import UIKit
 
 
 class MainScreenVC: UIViewController {
-
+    
     
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
@@ -25,7 +25,7 @@ class MainScreenVC: UIViewController {
     
     var items = [Item]()
     var indexOfItemSelected: Int?
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,17 +39,17 @@ class MainScreenVC: UIViewController {
         let leftItem = UIBarButtonItem(customView: titleLabel)
         self.navigationItem.leftBarButtonItem = leftItem
         
-//        spinner.startAnimating()
-//       Item.retrieveItems { (items) in
-//        self.items = items
-//        self.catalogCollectionView.reloadData()
-//        self.spinner.stopAnimating()
-//        }
-
-//        self.desiredItemsTableView.reloadData()
-  
+        //        spinner.startAnimating()
+        //       Item.retrieveItems { (items) in
+        //        self.items = items
+        //        self.catalogCollectionView.reloadData()
+        //        self.spinner.stopAnimating()
+        //        }
+        
+        //        self.desiredItemsTableView.reloadData()
+        
     }
-
+    
     
     @IBAction func ProceedToCheckBtnTapped(_ sender: UIButton) {
         
@@ -77,8 +77,8 @@ class MainScreenVC: UIViewController {
         if let index = self.desiredItemsTableView.indexPathForSelectedRow {
             self.desiredItemsTableView.deselectRow(at: index, animated: true)
         }
-     
-       
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -116,30 +116,30 @@ class MainScreenVC: UIViewController {
 
 
 // MARK: - Implementation of UICollectionViewDelegate and UICollectionViewDataSource methods
-    extension MainScreenVC : UICollectionViewDataSource, UICollectionViewDelegate {
+extension MainScreenVC : UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        func numberOfSections(in collectionView: UICollectionView) -> Int {
-            return 1
-        }
+        return items.count
         
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-           
-            return items.count
-         
-        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = catalogCollectionView.dequeueReusableCell(withReuseIdentifier: "Product Cell", for: indexPath) as! ProductCollectionCell
         
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = catalogCollectionView.dequeueReusableCell(withReuseIdentifier: "Product Cell", for: indexPath) as! ProductCollectionCell
-            
-            cell.item = self.items[indexPath.item]
-            
-            return cell
-        }
+        cell.item = self.items[indexPath.item]
         
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let item = items[indexPath.item]
-            performSegue(withIdentifier: "From Catalogue", sender: item)
-        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = items[indexPath.item]
+        performSegue(withIdentifier: "From Catalogue", sender: item)
+    }
 }
 
 
@@ -162,7 +162,7 @@ extension MainScreenVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
+        
         return WishlistManager.sharedInstance.wishList.count
     }
     
