@@ -1,6 +1,6 @@
 //
 //  WishlistManager.swift
-//  TASCH
+//  E-SHOP
 //
 //  Created by My Computer on 2017-06-10.
 //  Copyright © 2017 Marwa. All rights reserved.
@@ -23,7 +23,6 @@ class WishlistManager: NSObject {
     }
     
     func removeItem(index: Int) {
-        
         
         wishList.remove(at: index)
 }

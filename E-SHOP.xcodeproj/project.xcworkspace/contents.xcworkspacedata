@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TASCH.xcodeproj">
+      location = "self:/Users/User/Desktop/test/TASCHv1.3/E-SHOP.xcodeproj">
    </FileRef>
 </Workspace>

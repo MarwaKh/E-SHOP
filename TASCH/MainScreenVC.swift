@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  TASCH
+//  MainScreenVC.swift
+//  E-SHOP
 //
 //  Created by My Computer on 2017-06-08.
 //  Copyright © 2017 Marwa. All rights reserved.
@@ -21,15 +21,17 @@ class MainScreenVC: UIViewController {
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var subTotal: UILabel!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var items = [Item]()
     var indexOfItemSelected: Int?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let titleLabel = UILabel()
-        titleLabel.text = "TASCH"
+        titleLabel.text = "E-SHOP"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 32.0)
         titleLabel.textColor = UIColor.white
         titleLabel.sizeToFit()
@@ -37,15 +39,16 @@ class MainScreenVC: UIViewController {
         let leftItem = UIBarButtonItem(customView: titleLabel)
         self.navigationItem.leftBarButtonItem = leftItem
         
-        items = Item.retrieveItems()
-        
-        
-        self.desiredItemsTableView.reloadData()
-        
-        
-        
+//        spinner.startAnimating()
+//       Item.retrieveItems { (items) in
+//        self.items = items
+//        self.catalogCollectionView.reloadData()
+//        self.spinner.stopAnimating()
+//        }
+
+//        self.desiredItemsTableView.reloadData()
+  
     }
-    
 
     
     @IBAction func ProceedToCheckBtnTapped(_ sender: UIButton) {
@@ -68,17 +71,25 @@ class MainScreenVC: UIViewController {
         
         self.desiredItemsTableView.reloadData()
         
-         totalPrice.text = "Total $\(WishlistManager.sharedInstance.totalPrice())"
+        totalPrice.text = "Total $\(WishlistManager.sharedInstance.totalPrice())"
         subTotal.text = "$\(WishlistManager.sharedInstance.totalPrice())"
         
         if let index = self.desiredItemsTableView.indexPathForSelectedRow {
             self.desiredItemsTableView.deselectRow(at: index, animated: true)
         }
+     
        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.hidesBarsOnSwipe = true
+        
+        spinner.startAnimating()
+        Item.retrieveItems { (items) in
+            self.items = items
+            self.catalogCollectionView.reloadData()
+            self.spinner.stopAnimating()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -104,7 +115,7 @@ class MainScreenVC: UIViewController {
 }
 
 
-
+// MARK: - Implementation of UICollectionViewDelegate and UICollectionViewDataSource methods
     extension MainScreenVC : UICollectionViewDataSource, UICollectionViewDelegate {
         
         func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -112,8 +123,9 @@ class MainScreenVC: UIViewController {
         }
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            print(items.count)
+           
             return items.count
+         
         }
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -139,7 +151,7 @@ extension MainScreenVC : UITableViewDelegate, UITableViewDataSource {
             return 1
         }
         
-        let rect = CGRect(x: 0, y: 0, width: self.desiredItemsTableView.bounds.size.width, height: self.desiredItemsTableView.bounds.size.width)
+        let rect = CGRect(x: 0, y: 0, width: self.desiredItemsTableView.bounds.size.width, height: self.desiredItemsTableView.bounds.size.height)
         let noDataAdded: UILabel = UILabel(frame: rect)
         noDataAdded.text = "No data added to the wishlist"
         noDataAdded.textColor = UIColor.darkGray

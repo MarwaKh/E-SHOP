@@ -1,6 +1,6 @@
 //
 //  ItemVC.swift
-//  TASCH
+//  E-SHOP
 //
 //  Created by My Computer on 2017-06-09.
 //  Copyright © 2017 Marwa. All rights reserved.
@@ -77,7 +77,9 @@ class ItemVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         self.navigationItem.title = itemSelected?.name
-
+        
+        print(itemSelected)
+   
         
     }
     
@@ -86,10 +88,12 @@ class ItemVC: UIViewController {
     }
     
     @IBAction func addBtnTapped(_ sender: UIButton) {
-        
+         print("______________________")
         WishlistManager.sharedInstance.addItem(item: itemSelected!)
+        print("______________________")
+//        print(WishlistManager.sharedInstance.totalPrice())
       
-       _ = navigationController?.popViewController(animated: true)
+      _ = navigationController?.popViewController(animated: true)
     
     }
    
@@ -128,7 +132,7 @@ extension ItemVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         
         //If the item selected is out of stock => Background shows uilabel out of stock
-        let rect = CGRect(x: 0, y: 0, width: self.colorCollectionView.bounds.size.width, height: self.colorCollectionView.bounds.size.width)
+        let rect = CGRect(x: 0, y: 0, width: self.colorCollectionView.bounds.size.width, height: self.colorCollectionView.bounds.size.height)
         let outOfStockLabel: UILabel = UILabel(frame: rect)
         outOfStockLabel.text = "Out of stock"
         outOfStockLabel.textColor = UIColor.red

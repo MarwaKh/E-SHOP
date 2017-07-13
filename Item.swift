@@ -1,6 +1,6 @@
 //
 //  Item.swift
-//  TASCH
+//  E-SHOP
 //
 //  Created by My Computer on 2017-06-09.
 //  Copyright © 2017 Marwa. All rights reserved.
@@ -19,56 +19,71 @@ class Item {
     var quantity : String?
     var imagePath : String?
     var about : String?
-    
-    
-    
+ 
     init(itemDict: [String : AnyObject]) {
         self.name = itemDict["name"] as? String
         self.price = itemDict["price"] as? String
-        self.desc = itemDict["desc"] as? String
+        self.desc = itemDict["description"] as? String
         self.size = itemDict["size"] as? String
         self.stars = itemDict["stars"] as? String
         self.quantity = itemDict["quantity"] as? String
         self.imagePath = itemDict["imagePath"] as? String
         self.colors = itemDict["colors"] as? String
-        self.about = itemDict["About"] as? String
+        self.about = itemDict["about"] as? String
     }
     
     
-    static func retrieveItems() -> [Item] {
-        
+   static func retrieveItems(completionHandler: @escaping ([Item]) -> ()) {
+    
+    DispatchQueue.global(qos: .userInteractive).async {
+     
         var items = [Item]()
-        
-        let jsonFile = Bundle.main.path(forResource: "items", ofType: "json")
-        let jsonData = NSData(contentsOfFile: jsonFile!)
-        
-        if let jsonDict = parseJSONData(jsonData: jsonData) {
-            let itemDicts = jsonDict["items"] as! [[String : AnyObject]]
-            for itemDict in itemDicts {
-                let item = Item(itemDict: itemDict)
-           
-                items.append(item)
-            }
-        }
-   
-        return items
-        
-    }
     
-    static func parseJSONData(jsonData: NSData?) -> [String : AnyObject]? {
+    
+        let requestURL = NSURL(string: "http://localhost:8888/E-SHOP/getProducts.php")
+    
+        let request = NSMutableURLRequest(url: requestURL! as URL)
         
-        if let data = jsonData {
+    
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest){
+            data, response, error in
+            
+            //exiting if there is some error
+            if error != nil{
+                print("error is \(error)")
+                return;
+            }
+            else {
             do {
-                let jsonDict = try JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String : AnyObject]
-                return jsonDict
-            } catch let error as NSError {
-                print(error.localizedDescription)
+             
+                let productsJSON = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: AnyObject]
+                
+                if let jsonDict = productsJSON {
+                    let itemDicts = jsonDict["products"] as! [[String : AnyObject]]
+                    for itemDict in itemDicts {
+                        let item = Item(itemDict: itemDict)
+                        items.append(item)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        completionHandler(items)
+                    }
+                }
+                
+            } catch {
+                print(error)
+            }
+               
             }
         }
         
-        return nil
+        task.resume()
+        
     }
-    
+    }
+
     func getColors(item: Item) -> [String] {
 
             return (item.colors?.components(separatedBy: " "))!

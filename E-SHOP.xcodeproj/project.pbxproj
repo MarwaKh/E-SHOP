@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		CE26D1391EF06C050021044B /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		CE26D13B1EF0768C0021044B /* CostumButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostumButton.swift; sourceTree = "<group>"; };
-		CEB723991EE9B2100048B932 /* TASCH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TASCH.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB723991EE9B2100048B932 /* E-SHOP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-SHOP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB7239C1EE9B2100048B932 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEB7239E1EE9B2100048B932 /* MainScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenVC.swift; sourceTree = "<group>"; };
 		CEB723A11EE9B2100048B932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		CEB723901EE9B20F0048B932 = {
 			isa = PBXGroup;
 			children = (
-				CEB7239B1EE9B2100048B932 /* TASCH */,
+				CEB7239B1EE9B2100048B932 /* E-SHOP */,
 				CEB7239A1EE9B2100048B932 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,12 +105,12 @@
 		CEB7239A1EE9B2100048B932 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEB723991EE9B2100048B932 /* TASCH.app */,
+				CEB723991EE9B2100048B932 /* E-SHOP.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CEB7239B1EE9B2100048B932 /* TASCH */ = {
+		CEB7239B1EE9B2100048B932 /* E-SHOP */ = {
 			isa = PBXGroup;
 			children = (
 				CEB7239C1EE9B2100048B932 /* AppDelegate.swift */,
@@ -123,15 +123,16 @@
 				CEB723A51EE9B2100048B932 /* LaunchScreen.storyboard */,
 				CEB723A81EE9B2100048B932 /* Info.plist */,
 			);
+			name = "E-SHOP";
 			path = TASCH;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CEB723981EE9B20F0048B932 /* TASCH */ = {
+		CEB723981EE9B20F0048B932 /* E-SHOP */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEB723AB1EE9B2100048B932 /* Build configuration list for PBXNativeTarget "TASCH" */;
+			buildConfigurationList = CEB723AB1EE9B2100048B932 /* Build configuration list for PBXNativeTarget "E-SHOP" */;
 			buildPhases = (
 				CEB723951EE9B20F0048B932 /* Sources */,
 				CEB723961EE9B20F0048B932 /* Frameworks */,
@@ -141,9 +142,9 @@
 			);
 			dependencies = (
 			);
-			name = TASCH;
+			name = "E-SHOP";
 			productName = TASCH;
-			productReference = CEB723991EE9B2100048B932 /* TASCH.app */;
+			productReference = CEB723991EE9B2100048B932 /* E-SHOP.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -163,7 +164,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CEB723941EE9B20F0048B932 /* Build configuration list for PBXProject "TASCH" */;
+			buildConfigurationList = CEB723941EE9B20F0048B932 /* Build configuration list for PBXProject "E-SHOP" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -176,7 +177,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEB723981EE9B20F0048B932 /* TASCH */,
+				CEB723981EE9B20F0048B932 /* E-SHOP */,
 			);
 		};
 /* End PBXProject section */
@@ -336,7 +337,7 @@
 				DEVELOPMENT_TEAM = P8WWQCMBY7;
 				INFOPLIST_FILE = TASCH/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.marwa.TASCH;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marwa.E-SHOP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -349,7 +350,7 @@
 				DEVELOPMENT_TEAM = P8WWQCMBY7;
 				INFOPLIST_FILE = TASCH/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.marwa.TASCH;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marwa.E-SHOP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -358,7 +359,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CEB723941EE9B20F0048B932 /* Build configuration list for PBXProject "TASCH" */ = {
+		CEB723941EE9B20F0048B932 /* Build configuration list for PBXProject "E-SHOP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEB723A91EE9B2100048B932 /* Debug */,
@@ -367,7 +368,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEB723AB1EE9B2100048B932 /* Build configuration list for PBXNativeTarget "TASCH" */ = {
+		CEB723AB1EE9B2100048B932 /* Build configuration list for PBXNativeTarget "E-SHOP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEB723AC1EE9B2100048B932 /* Debug */,
