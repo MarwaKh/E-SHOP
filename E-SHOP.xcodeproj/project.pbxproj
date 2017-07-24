@@ -16,7 +16,6 @@
 		CEB723A71EE9B2100048B932 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB723A51EE9B2100048B932 /* LaunchScreen.storyboard */; };
 		CEDD2B331EEB969A00D2938D /* ProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD2B321EEB969A00D2938D /* ProductCollectionCell.swift */; };
 		CEEF7EE71EEAF12D0018E394 /* ItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEF7EE61EEAF12D0018E394 /* ItemVC.swift */; };
-		CEEF7EE91EEB347D0018E394 /* items.json in Resources */ = {isa = PBXBuildFile; fileRef = CEEF7EE81EEB347C0018E394 /* items.json */; };
 		CEEF7EEF1EEB44CA0018E394 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEF7EEE1EEB44CA0018E394 /* Item.swift */; };
 		CEF4EFD61EED976300F7398F /* CosmoDisturb.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4EFD51EED976300F7398F /* CosmoDisturb.swift */; };
 		CEFF27831EEC93AF00249CE3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF27821EEC93AF00249CE3 /* UIColor+Extension.swift */; };
@@ -36,10 +35,9 @@
 		CEB723A81EE9B2100048B932 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEDD2B321EEB969A00D2938D /* ProductCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionCell.swift; sourceTree = "<group>"; };
 		CEEF7EE61EEAF12D0018E394 /* ItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemVC.swift; sourceTree = "<group>"; };
-		CEEF7EE81EEB347C0018E394 /* items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = items.json; sourceTree = "<group>"; };
-		CEEF7EEE1EEB44CA0018E394 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = ../Item.swift; sourceTree = "<group>"; };
+		CEEF7EEE1EEB44CA0018E394 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CEF4EFD51EED976300F7398F /* CosmoDisturb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmoDisturb.swift; sourceTree = "<group>"; };
-		CEFF27821EEC93AF00249CE3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "../UIColor+Extension.swift"; sourceTree = "<group>"; };
+		CEFF27821EEC93AF00249CE3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		CEFF27841EECB21400249CE3 /* WishlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistManager.swift; sourceTree = "<group>"; };
 		CEFF27861EECD7D400249CE3 /* WishListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,14 +84,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		CE26D1401EF090C60021044B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CEEF7EE81EEB347C0018E394 /* items.json */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		CEB723901EE9B20F0048B932 = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +107,6 @@
 				CE26D13E1EF0893E0021044B /* Views */,
 				CE26D13F1EF089590021044B /* Model */,
 				CE26D13D1EF089060021044B /* Controllers */,
-				CE26D1401EF090C60021044B /* Resources */,
 				CEB723A01EE9B2100048B932 /* Main.storyboard */,
 				CEB723A31EE9B2100048B932 /* Assets.xcassets */,
 				CEB723A51EE9B2100048B932 /* LaunchScreen.storyboard */,
@@ -186,7 +175,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEF7EE91EEB347D0018E394 /* items.json in Resources */,
 				CEB723A71EE9B2100048B932 /* LaunchScreen.storyboard in Resources */,
 				CEB723A41EE9B2100048B932 /* Assets.xcassets in Resources */,
 				CEB723A21EE9B2100048B932 /* Main.storyboard in Resources */,
